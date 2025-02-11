@@ -1,0 +1,302 @@
+/* Container for the entire carousel */
+.carousel-container {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5%;
+    background-color: transparent;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    padding: 5px;
+    padding-top: 20px;
+}
+
+/* Carousel itself */
+.carousel {
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Individual carousel items */
+.carousel-item {
+    min-width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    opacity: 0.6;
+    transform: scale(0.95);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #f1f3f4;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+    background-color: #ffffff;
+}
+
+/* Pagination dots */
+.carousel-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; /* Réduction de la marge supérieure */
+}
+
+.carousel-dot {
+    height: 6px;  /* Taille des points réduite */
+    width: 6px;   /* Taille des points réduite */
+    margin: 0 5px;  /* Espace réduit entre les points */
+    background-color: #adb5bd;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: #212529;
+}
+
+/* Styling for arrows */
+.MuiIconButton-root {
+    color: #212529 !important;
+    transition: color 0.3s ease;
+    font-size: 1.2rem; /* Réduction de la taille des flèches */
+}
+
+.MuiIconButton-root:hover {
+    color: #343a40;
+}
+
+
+/* Styling for Platform Logo */
+.platform-logo {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    margin-left: 20px;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 10%;
+}
+
+.platform-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Date and Time */
+.date-time {
+    font-size: 16px !important;
+    color: #343a40;
+    text-align: right;
+    position: absolute;
+    top: 10px;
+    right: 7%;
+    font-weight: bold !important;
+}
+
+.file-promptt{
+    margin-top: 5%;
+}
+/* File name or prompt with icons */
+.file-prompt {
+    display: flex;
+    align-items: center;
+    color: #212529;
+    margin-bottom: 8px;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+
+/* Icon for file and prompt */
+.file-icon, .prompt-icon {
+    font-size: 20px;
+    margin-right: 8px;
+    color: #495057;
+    font-weight: bold;
+
+}
+
+/* Region icon and text */
+.region {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold !important;
+    color: #495057;
+    margin-top: 5px;
+
+}
+
+.region-icon {
+    font-size: 20px;
+    margin-right: 6px;
+    color: #495057;
+}
+
+/* Styling for the right section */
+.right-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    padding-right: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.right-info p {
+    margin: 0;
+}
+
+/* Add a hover effect for carousel items */
+.carousel-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+/* Flex container to ensure the icons and text are aligned properly */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+@media (max-width: 800px) {
+    /* Adjust carousel-item flex-direction */
+    .carousel-item {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Date and Time adjustments */
+    .date-time {
+        position: static;  /* Remove absolute positioning */
+        margin-bottom: 10px;
+        text-align: center;
+        top: auto;
+        font-size: 12px !important;
+        right: 0% !important;
+    }
+
+    /* Platform logo adjustments */
+    .platform-logo {
+        margin: 0 auto;
+        width: 100px; /* Adjust size as needed */
+        height: auto;
+        margin-bottom: 10px;
+        margin-top: 10px; /* Add top margin if needed */
+        align-items: center !important;
+    }
+
+    /* Right info adjustments */
+    .right-info {
+        align-items: center;
+        text-align: center;
+        width: 100%; /* Full width */
+    }
+
+    .file-promptt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row; /* Place l'icône et le texte côte à côte */
+        margin-bottom: 10px;
+        text-align: left; /* Aligne le texte à gauche */
+        margin-left: 15% !important;
+    }
+
+    /* Texte et icône pour le fichier ou le prompt */
+    .file-prompt {
+        display: flex;
+        align-items: flex-start !important;
+        font-size: 12px !important;
+        white-space: normal;
+        overflow-wrap: break-word;
+        max-width: 100%; /* Limite la largeur du texte */
+    }
+
+    /* Icône */
+    .file-icon, .prompt-icon {
+        font-size: 18px;
+        margin-right: 8px; /* Espace entre l'icône et le texte */
+        flex-shrink: 0; /* Garde l'icône à une taille fixe */
+        align-self: flex-start;
+    }
+
+    /* Texte spécifique dans file-prompt */
+    .file-prompt span {
+        max-width: calc(100% - 30px); /* Ajuste la largeur du texte pour éviter le chevauchement */
+        display: inline-block;
+        word-break: break-word; /* Retourne à la ligne pour les mots longs */
+    }
+    
+
+    /* Adjust arrow button sizes */
+    .MuiIconButton-root {
+        font-size: 1rem; /* Reduce arrow size for mobile */
+    }
+}
+
+/* Mode sombre pour LastRequest */
+.dark-mode .carousel-container {
+    background-color: transparent;
+    color: #e0e0e0;
+}
+
+.dark-mode .carousel-item {
+    background-color: transparent !important;
+    border: 1px solid #444;
+    color: #e0e0e0;
+}
+
+.dark-mode .carousel-item.active {
+    background-color: #444;
+}
+
+.dark-mode .carousel-item:hover {
+    background-color: #555;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .platform-logo {
+    filter: brightness(0.8); /* Assombrit les logos */
+}
+
+.dark-mode .date-time {
+    color: whitesmoke; /* Doré pour la date et l'heure */
+}
+
+.dark-mode .file-prompt, .dark-mode .region {
+    color: #e0e0e0;
+}
+
+.dark-mode .file-icon, .dark-mode .prompt-icon, .dark-mode .region-icon {
+    color: whitesmoke; /* Doré pour les icônes */
+}
+
+.dark-mode .carousel-pagination .carousel-dot {
+    background-color: #555;
+}
+
+.dark-mode .carousel-pagination .carousel-dot.active {
+    background-color: #e7433c; /* Point actif en doré */
+}
+
+.dark-mode .MuiIconButton-root {
+    color: #FFD700 !important; /* Boutons de navigation dorés */
+}
+
+.dark-mode .MuiIconButton-root:hover {
+    color: #e0e0e0 !important; /* Boutons de navigation en blanc au survol */
+}

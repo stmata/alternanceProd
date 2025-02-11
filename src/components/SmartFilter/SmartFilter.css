@@ -1,0 +1,319 @@
+/* Conteneur principal */
+.smart-filter-container2 body{
+  background-color: white;
+  padding: 50px;
+}
+.smart-filter-container2 {
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  width: 93%;
+  background-color: #f9f9f9; /* Arrière-plan clair */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  border-radius: 12px; /* Coins arrondis */
+}
+.divider {
+  width: 2px; /* Épaisseur du trait */
+  background-color: red; /* Couleur du trait rouge */
+  height: auto; /* Hauteur par défaut */
+  transition: all 0.3s ease;
+}
+
+/* Style pour les sections */
+.filter-section {
+  width: 42%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center; /* Centrer le contenu */
+  transition: transform 0.3s ease;
+}
+
+.filter-section:hover {
+  transform: translateY(-5px);
+}
+
+/* Titres centrés */
+.filter-section h2 {
+  color: #171C3F;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center; /* Centrer le titre */
+}
+
+/* Paragraphes */
+.filter-section p {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.file-upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.file-upload-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(23, 28, 63, 0.5);
+  width: 93%; /* Modification de la largeur */
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.file-upload-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.file-upload-box {
+  border: 2px dashed #171C3F;
+  margin: auto;
+  padding: 30px;
+  width: 80%;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  position: relative;
+}
+
+.file-input {
+  display: none; /* L'input est masqué */
+}
+
+.file-label {
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-icon {
+  font-size: 40px;
+  color: #171C3F;
+  margin-bottom: 10px;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #171C3F;
+  margin-top: 10px;
+}
+
+
+/* Textarea stylisé */
+.filter-section textarea {
+  width: 90%;
+  height: 220px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  background-color: #fafafa;
+  resize: vertical;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.filter-section textarea:focus { 
+  outline: none; 
+  border-color: #171C3F 2px solid !important;
+  box-shadow: 0 0 5px rgba(23, 28, 63, 0.5); /* Adjusted color for shadow */
+}
+
+/* Boutons centrés */
+.disabled-button {
+  background-color: #171C3F !important; /* Couleur du bouton désactivé */
+  color: rgb(245, 232, 232);
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.button-active {
+  background-color: white !important;
+  color: #171C3F !important;
+  border: 2px solid #171C3F !important;
+  font-weight: bold !important;
+
+}
+
+/* Style pour les boutons lien */
+.link-button {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.link-button:hover {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  border:none !important;
+}
+.link-button2 {
+  display: inline-block;
+  text-decoration: none;
+  color: #171C3F;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.link-button2:hover {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  border:none !important;
+}
+
+/* Responsivité pour les petits écrans */
+@media (max-width: 1005px) {
+  .smart-filter-container2 {
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    margin-top: 50px;
+    margin-left: 0 auto;
+  }
+  .file-upload-form {
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement (si nécessaire) */
+    width: 83%;
+    padding: 20px; /* Ajout d'un padding si nécessaire */
+}
+.file-upload-box {
+  border: 2px dashed #171C3F;
+  margin: auto;
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  position: relative;
+}
+  .filter-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+/* Mode sombre pour smart-filter-container2 */
+.dark-mode .smart-filter-container2 {
+  background-color: transparent; /* Couleur sombre pour le fond */
+  color: #e0e0e0; /* Couleur de texte claire */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Ombre légère blanche */
+}
+
+/* Arrière-plan et bordure de section dans le mode sombre */
+.dark-mode .filter-section {
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Ombre légère */
+  color: #e0e0e0;
+}
+
+.dark-mode .filter-section h2 {
+  color: #e7433c; /* Couleur dorée pour les titres */
+}
+
+.dark-mode .filter-section p {
+  color: #c0c0c0;
+}
+
+/* Style pour le textarea dans le mode sombre */
+.dark-mode .filter-section textarea {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.dark-mode .filter-section textarea:focus {
+  border-color: #333; /* Bordure dorée au focus */
+  box-shadow: 0 0 5px rgba(189, 188, 185, 0.5); /* Ombre dorée au focus */
+}
+
+/* Style pour le bouton désactivé dans le mode sombre */
+.dark-mode .disabled-button {
+  background-color: #555;
+  color: #aaa;
+  border: none;
+}
+.dark-mode .file-upload-form{
+  border: 2px solid #aaa !important;
+}
+.dark-mode .file-upload-title{
+  color: whitesmoke !important;
+}
+/* Boutons en mode sombre */
+.dark-mode .button-active {
+  background-color: #333 !important;
+  color: #ffffff !important;
+  border: 2px solid #333 !important;
+}
+
+.dark-mode .button-active:hover {
+  background-color: #ffffff;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* Boutons désactivés en mode sombre */
+.dark-mode .disabled-button {
+  background-color: #555 !important;
+  color: #aaa;
+  border: none;
+}
+
+
+
+/* Style du séparateur */
+.dark-mode .divider {
+  background-color: #e7433c; /* Couleur dorée pour le séparateur */
+}
+
+/* Style pour le conteneur de téléchargement de fichiers en mode sombre */
+.dark-mode .file-upload-form {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.dark-mode .file-upload-box {
+  background-color: #333;
+  border: 2px dashed white;
+}
+
+.dark-mode .file-upload-title {
+  color: #e0e0e0;
+}
+
+.dark-mode .file-label {
+  color: #e0e0e0;
+}
+
+.dark-mode .upload-icon {
+  color: #e0e0e0; /* Couleur dorée pour l'icône de téléchargement */
+}
+
+.dark-mode .file-size {
+  color: #e0e0e0;
+}

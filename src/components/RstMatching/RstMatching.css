@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+/* Variables de couleur */
+:root {
+    --primary-color: #171C3F;
+    --secondary-color: #4A4E69;
+    --accent-color: #9A8C98;
+    --background-color: #f4f6f9;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --hover-color: #C9ADA7;
+}
+.nacolor{
+    color: #171C3F;
+}
+
+/* Global styles */
+.prefix-container3 body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--text-color);
+}
+
+.prefix-bold-heading {
+    font-weight: bold !important;
+}
+
+/* Heading */
+.prefix-h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+/* Global container */
+.prefix-divGlobal {
+    margin-top: 90px;
+    width: 95% !important;
+    padding: 20px;
+    border-radius: 10px;
+}
+.prefix-container3 {
+  margin-top: 100px !important;
+  width: 90% !important;
+}
+
+/* Divider */
+.prefix-divider2 {
+    width: 2px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+.close-button{
+    color: red;
+}
+/* Job result row styling */
+.prefix-job-result-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+    width: 100%;
+}
+
+.prefix-job-result-row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for each block in the row */
+.prefix-job-result-block {
+    flex: 1;
+    padding: 15px;
+}
+
+/* First block (title and company) */
+.prefix-job-result-block:nth-child(1) {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Second block (skills and description) */
+.prefix-job-result-block:nth-child(2) {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.prefix-body1 {
+    color: red !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+.matching_skills{
+    color: black;
+}
+.prefix-body2{
+    color: green !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+/* Title and Company icons */
+.prefix-job-title-icon::before,
+.prefix-job-company-icon::before {
+    margin-right: 8px;
+}
+
+.prefix-job-company-icon::before {
+    content: '🏢';
+}
+
+/* Title styling */
+.prefix-job-result-block h6 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* Company styling */
+.prefix-MuiTypography-subtitle1 {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* Button Styling */
+.prefix-MuiButton-contained {
+    color: white;
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prefix-MuiButton-contained:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+}
+
+/* Missing skills and description styling */
+.prefix-MuiTypography-body1 {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+/* Pagination styles */
+.prefix-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.prefix-pagination button {
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.prefix-pagination button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.prefix-button {
+    color: #171C3F !important;
+    font-weight: bold !important;
+    background-color: white !important;
+    border: #171C3F solid 2px !important;
+    transition: color 0.3s ease, text-decoration 0.3s ease !important;
+}
+
+.prefix-button:hover {
+    background-color: #171C3F !important;
+    color: white !important;
+    font-weight: bold !important;
+    transition: color 0.3s ease, text-decoration 0.3s ease !important;
+    border: none !important;
+}
+
+.prefix-button2 {
+    background-color: #171C3F !important;
+    color: white !important;
+    font-weight: bold !important;
+    transition: color 0.3s ease, text-decoration 0.3s ease !important;
+    border: none !important;
+}
+
+.prefix-button2:hover {
+    color: #171C3F !important;
+    font-weight: bold !important;
+    background-color: white !important;
+    border: #171C3F solid 2px !important;
+    transition: color 0.3s ease, text-decoration 0.3s ease !important;
+}
+
+.prefix-pagination span {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Responsive styles */
+@media (max-width: 899px) {
+    .prefix-divGlobal {
+        margin-top: 0px !important;
+        width: 100% !important;
+        padding: 0px;
+    }
+
+    .prefix-container3 {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .prefix-job-result-row {
+        flex-direction: column;
+        padding: 10px;
+        width: 90%;
+        margin: 5px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .prefix-job-result-block:nth-child(1){
+        margin: 0;
+        padding: 10px;
+    }
+
+    .prefix-pagination {
+        margin-top: 10px;
+        gap: 5px;
+    }
+    .predict_title{
+        font-size: 22px !important;
+        margin-bottom: 0px !important;
+    }
+    .table-container{
+        margin-top: 5px;
+    }
+    .prefix-job-result-block h6{
+        font-size: 16px;
+    }
+    .prefix-job-result-block .subtitle1{
+        font-size: 16px;
+    }
+    .prefix-button{
+        font-size: 12px !important;
+    }
+    .prefix-body1{
+        font-size: 16px !important;
+    }
+    .prefix-body2{
+        font-size: 16px !important;
+    }
+}
+
+@media (min-width: 900px) {
+
+    .prefix-divGlobal {
+        margin-top: 0px !important;
+        width: 100% !important;
+        padding: 0px;
+
+    }
+
+    .prefix-container3 {
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+     }
+     .prefix-job-result-row {
+        padding: 10px;
+        width: 90%;
+        margin: 5px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+   
+    .prefix-job-result-block {
+        padding: 20px;
+        margin: 0;
+    }
+    
+}
+
+
+/* Mode sombre pour RstMatching */
+.dark-mode {
+    --primary-color: #ffffff;
+    --secondary-color: #c0c0c0;
+    --accent-color: whitesmoke;
+    --background-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --border-color: #444;
+    --hover-color: #e7433c;
+}
+.dark-mode .table-container{
+    background-color: transparent !important;
+    border: none;
+    box-shadow: none;
+}
+/* Conteneur principal en mode sombre */
+.dark-mode .prefix-container3 {
+    background-color: transparent !important;
+    color: var(--text-color);
+}
+
+/* En-têtes et titres */
+.dark-mode .prefix-h2, .dark-mode .predict_title {
+    color: var(--accent-color);
+}
+
+/* Divider et bordures */
+.dark-mode .prefix-divider2 {
+    background-color: transparent !important;
+}
+
+/* Lignes de résultat */
+.dark-mode .prefix-job-result-row {
+    background-color: transparent !important;
+    color: var(--text-color);
+}
+
+.dark-mode .prefix-job-result-row:hover {
+    background-color: #333;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+}
+
+/* Lignes de résultat */
+.dark-mode .details-container {
+    background-color: transparent !important;
+    color: var(--text-color);
+}
+.dark-mode .details-container:hover{
+    background-color: #333;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+}
+/* Contenu de chaque bloc */
+.dark-mode .prefix-job-result-block:nth-child(1),
+.dark-mode .prefix-job-result-block:nth-child(2) {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+}
+
+/* Titres des emplois */
+.dark-mode .prefix-job-result-block h6 {
+    color: var(--accent-color);
+}
+
+/* Sous-titre (entreprise) */
+.dark-mode .prefix-MuiTypography-subtitle1 {
+    color: var(--secondary-color);
+}
+
+/* Bouton actif */
+.dark-mode .prefix-button {
+    background-color: #333;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.dark-mode .prefix-button:hover {
+    background-color: var(--accent-color);
+    color: #333;
+}
+
+/* Bouton de retour */
+.dark-mode .prefix-button2 {
+    background-color: var(--accent-color);
+    color: #333;
+    border: none;
+}
+
+.dark-mode .prefix-button2:hover {
+    background-color: #333;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+/* Style du texte manquant */
+.dark-mode .matching_skills {
+    color: var(--text-color);
+}
+
+/* Boutons actifs en mode sombre */
+.dark-mode .prefix-button {
+    background-color: #333 !important;
+    color: #ffffff !important;
+    border: 2px solid #333 !important;
+}
+
+.dark-mode .prefix-button:hover {
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+/* Bouton secondaire en mode sombre */
+.dark-mode .prefix-button2 {
+    background-color: #333 !important;
+    color: #ffffff !important;
+    border: 2px solid #333 !important;
+}
+
+.dark-mode .prefix-button2:hover {
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+/* Boutons désactivés en mode sombre */
+.dark-mode .disabled-button {
+    background-color: #555 !important;
+    color: #aaa;
+    border: none;
+}
+
+
+.dark-mode .prefix-pagination span {
+    color: var(--text-color);
+}
+
+/* Boutons de pagination */
+.dark-mode .MuiTablePagination-actions .MuiIconButton-root {
+    color: var(--accent-color);
+}
+
+.dark-mode .MuiTablePagination-actions .MuiIconButton-root:hover {
+    color: var(--text-color);
+}
+
+/* Texte de couverture */
+.dark-mode .prefix-body1, .dark-mode .prefix-body2 {
+    color: var(--text-color);
+}

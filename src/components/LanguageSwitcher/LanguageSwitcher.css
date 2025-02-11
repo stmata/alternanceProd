@@ -1,0 +1,108 @@
+.language-switcher {
+  position: fixed;
+  bottom: -60px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(23, 28, 63, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.6s ease, background-color 0.3s ease, bottom 1s ease, box-shadow 0.5s ease;
+  transform: scale(0.9);
+}
+
+.language-switcher.magic-effect {
+  bottom: 30px;
+  transform: scale(1);
+  box-shadow: 0 20px 40px rgba(23, 28, 63, 0.3);
+}
+
+.language-switcher:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 50px rgba(23, 28, 63, 0.4);
+  background-color: #f0f0f0;
+}
+
+.language-icon {
+  font-size: 24px;
+  color: #171C3F;
+}
+
+.dropdown {
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(23, 28, 63, 0.3);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+  transition: all 0.4s ease; /* Transition douce pour l'apparition */
+}
+
+.language-switcher:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0); /* Transition de l'apparition */
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transition douce pour hover */
+  padding: 5px;
+  border-radius: 6px;
+  font-weight: 500;
+  width: fit-content; /* Largeur de base */
+}
+
+.dropdown-item:hover {
+  transform: translateX(2px); /* Léger décalage pour effet dynamique */
+  background-color: #f0f0f0;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 16px;
+}
+
+@media (max-width: 900px) {
+  .language-label {
+      display: none;
+  }
+
+  .dropdown-item {
+      gap: 0;
+  }
+}
+
+/* Dropdown en mode sombre */
+.dark-mode .dropdown {
+  background-color: #2a2a2a; /* Fond sombre pour le menu déroulant */
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .dropdown-item {
+  color: #e0e0e0; /* Texte clair pour le menu */
+}
+
+.dark-mode .dropdown-item:hover {
+  background-color: #444; /* Fond légèrement plus clair au survol */
+  transform: translateX(2px);
+}
+
+/* Icônes de drapeau en mode sombre */
+.dark-mode .flag-icon {
+  filter: brightness(0.9); /* Réduit la luminosité des drapeaux */
+}

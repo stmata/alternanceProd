@@ -1,0 +1,202 @@
+/* Job details container */
+.job-details-container {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto; /* Centering the container */
+    margin-right: auto; /* Centering the container */
+    text-align: left; /* Ensures content stays left-aligned */
+}
+.prefix-container4{
+ width: 100%;
+ margin-top: 10%;
+}
+/* Job title and view button container */
+.job-title-like-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Job title styling */
+.job-title {
+    font-size: 22px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Job section styling */
+.job-section {
+    margin-bottom: 15px;
+    font-size: 17px;
+    color: #333;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+/* Changing strong elements to blue */
+.job-section strong {
+    font-weight: bold;
+    color: #171C3F; /* Updated to blue */
+}
+
+/* List items inside job sections */
+.job-list-item {
+    margin-left: 20px;
+    margin-bottom: 8px;
+    list-style-type: disc;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Button styling for 'View Job' */
+.prefix-MuiButton-contained {
+    color: white;
+    background-color: #171C3F;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prefix-MuiButton-contained:hover {
+    transform: translateY(-3px);
+        background-color: transparent !important;
+        color: #171C3F;
+        border: #171C3F 2px solid;
+        font-weight: bold;
+      
+}
+
+.nolikedPosts{
+    font-size: 20px;
+    color: red;
+    text-align: center;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  }
+  
+
+/* Responsive styles */
+@media (max-width: 899px) {
+    .job-details-container {
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .job-title {
+      font-size: 20px;
+    }
+
+    .job-section {
+      font-size: 14px;
+    }
+    .prefix-MuiButton-contained{
+        font-size: 13px;
+    }
+    .job-title{
+        font-size: 15px;
+    }
+}
+
+
+/* Mode sombre pour ListOfLikes */
+.dark-mode .prefix-container4 {
+    background-color: transparent;
+    color: #e0e0e0;
+}
+
+.dark-mode .job-details-container {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+.dark-mode .job-title {
+    color: #e0e0e0; /* Couleur dorée pour le titre */
+}
+
+.dark-mode .job-section {
+    color: #c0c0c0;
+}
+
+
+
+.dark-mode .job-list-item {
+    color: #b3b3b3;
+}
+
+/* Boutons de pagination en mode clair */
+.MuiTablePagination-actions .MuiIconButton-root {
+    color: #171C3F; /* Choisis une couleur sombre appropriée pour le mode clair */
+}
+
+.MuiTablePagination-actions .MuiIconButton-root:hover {
+    color: #ff5252; /* Garde la couleur au survol (ça fonctionne aussi pour le mode clair) */
+}
+
+/* Style du bouton 'View Job' en mode sombre */
+.dark-mode .prefix-MuiButton-contained {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 2px solid #e0e0e0;
+}
+
+.dark-mode .prefix-MuiButton-contained:hover {
+    background-color: transparent;
+}
+
+/* Style de l'icône de suppression en mode sombre */
+.dark-mode .MuiIconButton-root {
+    color: #e0e0e0;
+}
+
+.dark-mode .MuiIconButton-root:hover {
+    color: #ff5252; /* Couleur de survol pour l'icône de suppression */
+}
+
+/* Texte de pagination en mode sombre */
+.dark-mode .MuiTablePagination-displayedRows {
+    color: #c0c0c0;
+}
+
+/* Boutons de pagination en mode sombre */
+.dark-mode .MuiTablePagination-actions .MuiIconButton-root {
+    color: #e0e0e0;
+}
+
+.dark-mode .MuiTablePagination-actions .MuiIconButton-root:hover {
+    color: #ff5252;
+}
+
+/* Texte du message d'absence de likes */
+.dark-mode .nolikedPosts {
+    color: #ff5252;
+}
+/* Mode sombre pour les icônes dans ListOfLikes */
+.dark-mode .job-section .MuiSvgIcon-root {
+    color: #ff5252; /* Couleur dorée pour les icônes */
+}
+
+/* Icône de suppression dans le mode sombre */
+.dark-mode .MuiIconButton-root .MuiSvgIcon-root {
+    color: #e0e0e0;
+}
+
+/* Icône de suppression survolée en mode sombre */
+.dark-mode .MuiIconButton-root:hover .MuiSvgIcon-root {
+    color: #ff5252; /* Rouge vif pour l'icône de suppression au survol */
+}

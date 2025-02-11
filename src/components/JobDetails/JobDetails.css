@@ -1,0 +1,88 @@
+.job-details-container {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    width: fit-content !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .job-title {
+    font-size: 22px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .job-section {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  .job-section strong {
+    font-weight: bold;
+    color: red;
+  }
+  .job-title-like-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+.job-list-item {
+    margin-left: 20px;
+    margin-bottom: 8px;
+    list-style-type: disc; /* Use disc for the list bullet */
+    color: #555; /* Text color for the list */
+    font-size: 14px;
+  }
+  @media (max-width: 899px) {
+    .job-details-container {
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+  
+    .job-title {
+      font-size: 20px;
+    }
+  
+    .job-section {
+      font-size: 14px;
+    }
+  }
+  
+
+  /* Mode sombre pour job-details-container */
+.dark-mode .job-details-container {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #e0e0e0;
+}
+
+.dark-mode .job-title {
+  color: #FFD700; /* Couleur dorée pour le titre du poste */
+}
+
+.dark-mode .job-section {
+  color: #c0c0c0;
+}
+
+.dark-mode .job-section strong {
+  color: #FFD700; /* Met en avant les titres avec une couleur dorée */
+}
+
+.dark-mode .job-title-like-container {
+  color: #e0e0e0;
+}
+
+.dark-mode .job-list-item {
+  color: #b3b3b3; /* Couleur plus claire pour les éléments de la liste */
+}
+
+.dark-mode .job-list-item::marker {
+  color: #FFD700; /* Couleur dorée pour les puces de la liste */
+}

@@ -1,0 +1,198 @@
+
+
+.platform-page h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #171C3F; /* Blanc pour le titre */
+  margin-bottom: 20px;
+}
+
+.platform-page p {
+  font-size: 18px;
+  color: #D1E8E4; /* Texte secondaire en blanc cassé */
+  line-height: 1.6;
+}
+
+/* Marges latérales définies pour centrer la page */
+.platform-page {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Ensures it takes the full width of the viewport */
+}
+
+/* Adjusting Chart responsiveness and spacing */
+.recharts-responsive-container {
+max-width: 100%;
+height: 400px;
+margin-top: 20px;
+}
+
+/* Typography adjustments for error or information messages */
+.MuiTypography-h6 {
+color: #dc3545; /* Error message color */
+text-align: center;
+font-weight: bold;
+}
+
+/* Style for the Tabs */
+.MuiTabs-flexContainer {
+justify-content: center;
+ /* Dark background for the tabs */
+border-radius: 8px;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.MuiTab-root {
+color: white !important;
+font-weight: bold;
+font-size: 16px;
+transition: color 0.3s ease;
+}
+
+.MuiTabs-indicator {
+background-color: #007bff; /* Line below active tab */
+height: 3px;
+}
+
+/* General container */
+.job-filter-container {
+width: 100%;
+padding: 20px;
+background-color: #f9f9f9;
+border-radius: 10px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+margin-top: 20px;
+text-align: left;
+}
+
+.job-filter-title {
+text-align: center;
+font-size: 24px;
+font-weight: bold;
+color: #333;
+margin-bottom: 20px;
+}
+
+.job-table-container {
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+}
+
+.job-table {
+min-width: 650px;
+}
+
+.job-table th {
+background-color: #007bff;
+color: white;
+font-weight: bold;
+text-align: left;
+padding: 10px;
+}
+
+.job-table td {
+padding: 10px;
+color: #333;
+}
+
+.job-table tr:hover {
+background-color: #f1f1f1;
+}
+
+.MuiCheckbox-root {
+color: #171C3F !important;
+}
+
+.MuiButton-containedPrimary {
+background-color: #171C3F;
+color: white;
+border-radius: 5px;
+}
+
+.MuiButton-containedSecondary {
+background-color: #d32f2f;
+color: white;
+border-radius: 5px;
+}
+
+.test{
+color: white !important;
+}
+
+.tablecell{
+color: #171C3F !important;
+}
+
+/* Flexbox for cards with alternating left and right alignment */
+.variables-section {
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-top: 20px;
+}
+
+.variables-section {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+/* Container for job boxes, arranged in rows of two */
+.custom-job-grid-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: space-between; /* Space between the two columns */
+}
+
+.platform-page {
+  width: calc(100% - 80px) !important; /* 100% de la largeur moins 40px de chaque côté */
+  padding: 40px;
+  background-color: white; /* Fond bleu foncé */
+  border-radius: 20px;
+  text-align: center; /* Centrer le texte à l'intérieur */
+  box-sizing: border-box;
+  margin-top: 100px;
+
+}
+
+/* Full width for large screens */
+@media (min-width: 1024px) {
+  .platform-page {
+      width: calc(100% - 80px) !important; /* Full width minus margin */
+      max-width: none; /* No max-width */
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .platform-page {
+      /* max-width: 800px; Restrict width on tablets */
+      margin: 50px auto; /* Center content with auto margins */
+      padding: 20px; /* Reduced padding for tablets */
+      margin-top: 100px;
+      width: calc(100% - 80px) !important;
+  }
+}
+/* Mobiles (less than 768px) */
+@media (max-width: 767px) {
+  .platform-page {
+      width: calc(100vw - 80px) !important; /* Take full viewport width minus margin */
+      margin-left: 40px !important; /* Center element horizontally */
+      margin-right: auto; /* Center element horizontally */
+      border-radius: 10px; /* Slightly smaller border-radius for mobile */
+      padding: 0px; /* Eliminate padding to avoid extra spacing */
+      margin-top: 100px;
+      justify-content: center; /* Center content horizontally */
+  }
+}

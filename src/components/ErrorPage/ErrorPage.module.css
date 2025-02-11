@@ -1,0 +1,25 @@
+.errorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    text-align: center;
+    background-color: #f0f0f0; 
+  }
+  
+  .msgError {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+
+  /* Mode sombre pour ErrorPage */
+.dark-mode .errorContainer {
+  background-color: #1e1e1e; /* Fond sombre */
+  color: #e0e0e0; /* Couleur de texte claire */
+}
+
+.dark-mode .msgError {
+  color: #e0e0e0; /* Texte doré pour le message d'erreur */
+  font-size: 2.5rem;
+}

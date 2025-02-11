@@ -1,0 +1,643 @@
+/* Global Styles */
+
+
+/* Navbar Styles */
+.navbar {
+  position: fixed; /* Fixer la navbar en haut de la page */
+  top: 0; /* Aligner en haut de la page */
+  left: 0; /* Aligner sur le côté gauche */
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(23, 28, 63, 0.5);
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  z-index: 9999; /* High enough to stay above other content */
+
+}
+
+.logo img {
+  height: 40px;
+}
+
+.job-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #171C3F;
+  font-size: 16px; /* Match icon size to text */
+}
+
+input {
+  padding-left: 40px; /* Space for the icon */
+  padding-right: 10px;
+  height: 35px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 35px; /* Ensure the text is vertically centered */
+  box-sizing: border-box; /* Make sure padding and borders are included in the width/height */
+}
+
+input::placeholder {
+  color: #ccc;
+  line-height: 35px; /* Ensure the placeholder text is vertically centered */
+}
+
+.smart-matching:hover .lightbulb-icon {
+  color: #171C3F;
+}
+/* Smart Matching Button */
+.smart-matching button {
+  padding: 10px 20px;
+  background-color: #171C3F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.smart-matching button:hover {
+  background-color: transparent !important;
+  color: #171C3F;
+  border: #171C3F 2px solid;
+}
+
+.initials-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #e7433c; /* Adjust the color as needed */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold !important;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 150px;
+}
+
+.dropdown-text {
+  margin-right: auto; /* Aligner le texte à gauche */
+}
+
+.dropdown-icon {
+  margin-left: 8px; /* Ajouter un espacement entre le texte et l'icône */
+}
+.dropdown-menu button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-icon {
+  margin-left: 8px;
+}
+/* Logout Icon */
+.logout-icon {
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+.logout-btn {
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+  font-size: 20px !important;
+}
+
+.logout-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Dropdown container */
+.dropdownRegion, .dropdownPlatform {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Location icon and text */
+.dropdownRegion .faMapMarkerAlt, .dropdownPlatform .faBriefcase {
+  font-size: 24px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+.lightbulb-icon:hover{
+  color:#171C3F !important ;
+}
+.dropdownRegion span, .dropdownPlatform span {
+  display: block;
+  margin-top: 5px;
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  z-index: 100;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.lightbulb-icon{
+  margin-right: 10px;
+}
+
+/* Dropdown menu visible when state is active */
+.dropdownRegion .dropdown-menu, .dropdownPlatform .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%);
+}
+
+/* Dropdown list items */
+.dropdown-menu li {
+  list-style-type: none;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Change icon and text color when dropdown is open */
+.dropdownRegion.active .faMapMarkerAlt, .dropdownPlatform.active .faBriefcase {
+  color: #171C3F; /* Change color when dropdown is open */
+}
+
+.dropdownRegion.active span, .dropdownPlatform.active span {
+  color: #171C3F; /* Change text color when dropdown is open */
+}
+
+
+.dropdownRegion, .dropdownPlatform, .dropdownInitials {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  /* Pour les menus alignés à gauche */
+  left: 50%;
+  transform: translateX(-50%);
+  /* Pour les menus alignés à droite (comme le menu des initiales) */
+  /* right: 0; left: auto; transform: none; */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-menu.niveaux{
+  width: auto; 
+}
+
+.dropdown-menu.regions{
+  width: 15rem !important; 
+}
+
+/* Dropdown menu visible when state is active */
+.dropdownRegion.active .dropdown-menu,
+.dropdownPlatform.active .dropdown-menu,
+.dropdownInitials .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%);
+}
+
+/* Adjust positioning for initials dropdown */
+.dropdownInitials .dropdown-menu {
+  top: 45px; /* Adjust based on the height of the initials circle */
+  right: 0;
+  left: auto;
+  transform: none;
+  width: auto;
+}
+
+/* Ensure the initials circle has position relative if needed */
+.dropdownInitials {
+  position: relative;
+}
+
+/* Initials circle */
+.initials-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #e7433c;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold !important;
+  margin-right: 10px;
+}
+
+/* Dropdown list items */
+.dropdown-menu li {
+  list-style-type: none;
+  padding: 10px 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+
+@media (max-width: 1005px) {
+  .logo {
+    margin-top: 40px;
+  }
+
+  .navbar.active {
+    transform: translateX(0);
+  }
+
+  .burger-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #171C3F;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Remove text (spans) in Platform and Region dropdowns for mobile */
+  .dropdownRegion span,
+  .dropdownPlatform span,
+  .smart-text {
+    margin-left: 10px;
+  }
+
+  .dropdownRegion, .dropdownPlatform, .smart-matching, .job-input {
+    margin: 15px 0; /* Reduced margin for closer spacing */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  /* Align elements properly */
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align icons at the top */
+    align-items: flex-start;
+    padding-top: 30px; /* Give space for the logo */
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(23, 28, 63, 0.5);
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transform: translateX(-100%); /* Menu is hidden by default */
+}
+
+  /* Dropdown menu appears outside the navbar */
+  .dropdown-menu {
+    position: absolute;
+    left: 180px; /* Positionné à droite de la navbar */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 100;
+    opacity: 1;
+    visibility: visible;
+    text-align: left;
+  }
+
+  .job-input {
+    position: relative;
+    display: flex;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 10px; /* Position the icon inside the input */
+    color: #171C3F; /* Set the color for the icon */
+    font-weight: bold;
+  }
+  input {
+    padding-left: 40px; /* Add padding to prevent text overlap with the icon */
+    padding-right: 10px;
+    height: 35px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  input:focus {
+    border: 2px solid #171C3F; /* Ajoute la largeur, le style et la couleur */
+    outline: none; /* Pour supprimer la bordure par défaut (si nécessaire) */
+}
+
+  input::placeholder {
+    color: #ccc;
+  }
+ 
+
+  /* Hover effect for Smart Matching icon (turns red) */
+  .smart-matching{
+    font-size: 12px;
+  }
+  
+
+  .logout-icon {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; 
+    height: 100%; 
+    width: 100%;    
+    text-align: center; 
+  }
+  
+  .logout-btn {
+    font-size: 24px; /* Ajustez la taille de l'icône */
+    color: #171C3F !important;  /* Couleur par défaut de l'icône */
+    position: fixed; /* Fixe le bouton à un endroit spécifique */
+    bottom: 15px;
+  }
+
+  /* Align items properly */
+  .dropdownRegion, .dropdownPlatform {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .burger-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #171C3F;
+    margin: 5px 0;
+  }
+  
+  .burger-bar.top {
+    transform-origin: top left;
+  }
+  
+  .burger-bar.bottom {
+    transform-origin: bottom left;
+  }
+  
+  .burger-bar.transform.top {
+    transform: rotate(45deg) translate(5px, 5px); /* Rotation vers le bas */
+  }
+  
+  .burger-bar.transform.bottom {
+    transform: rotate(-45deg) translate(5px, -5px); /* Rotation vers le haut */
+  }
+  
+  .burger-bar.middle.hide {
+    opacity: 0; /* Disparaît au milieu */
+  }
+  .dropdownInitials {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center;
+    position: relative; /* Pour que le dropdown soit positionné par rapport à ce conteneur */
+    width: 100%; /* Prendre toute la largeur disponible */
+  }
+
+  /* Dropdown menu pour les initials dans le menu mobile */
+  .dropdownInitials .dropdown-menu {
+    position: absolute;
+    left: auto;
+    right: -110px; /* Positionné légèrement à gauche du menu burger */
+    top: 100%;
+    transform: translateY(-20%);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 100;
+    opacity: 1;
+    visibility: visible;
+    min-width: 150px; /* Facultatif : définir une largeur minimale si nécessaire */
+    width: auto; /* Ajuste la largeur selon le contenu */
+  }
+  .dark-mode .dropdown-menu li:hover {
+    background-color: #888 !important; /* Couleur de survol */
+  }
+  
+  .dropdown-menu li {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+}
+
+/* Global Dark Mode for Navbar */
+.navbar.dark-mode {
+  background-color: #1c1c1c !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+/* Logo */
+.navbar.dark-mode .logo img {
+  filter: brightness(0.8);
+}
+
+/* Job Input */
+.navbar.dark-mode .job-input input {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.navbar.dark-mode input::placeholder {
+  color: #888;
+}
+
+.navbar.dark-mode .input-icon {
+  color: #e0e0e0;
+}
+
+/* Smart Matching Button */
+.navbar.dark-mode .smart-matching button {
+  background-color: #333;
+  color: #e0e0e0 !important;
+  border: 2px solid #444;
+  padding: 8px 16px;
+  font-weight: bold;
+}
+
+
+/* Initials Circle */
+.navbar.dark-mode .initials-circle {
+  background-color: #444;
+}
+
+/* Dropdown Menu */
+.navbar.dark-mode .dropdown-menu {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+.navbar.dark-mode .dropdown-menu li {
+  color: #e0e0e0;
+}
+.navbar .dropdown-menu li {
+  color: #333; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Logout Button */
+.navbar.dark-mode .logout-btn {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+/* Icons and Labels */
+.navbar.dark-mode .dropdownRegion .faMapMarkerAlt,
+.navbar.dark-mode .dropdownPlatform .faBriefcase,
+.navbar.dark-mode .dropdown-text,
+.navbar.dark-mode .smart-matching button,
+.navbar.dark-mode .dropdown-icon {
+  color: #e0e0e0 !important;
+}
+
+.navbar.dark-mode .dropdownRegion span,
+.navbar.dark-mode .dropdownPlatform span {
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+/* Customization for "Favoris" and "Correspondance intelligente" */
+.navbar.dark-mode .favorites {
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+.navbar.dark-mode .correspondance-button {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+
+/* Custom Styling for Location Icon and LinkedIn */
+.navbar.dark-mode .dropdownRegion .faMapMarkerAlt,
+.navbar.dark-mode .dropdownPlatform .faBriefcase {
+  color: #e0e0e0 !important; /* Adjust color as needed */
+}
+
+.navbar.dark-mode .linkedin-icon {
+  color: #e0e0e0;
+}
+.navbar.dark-mode .initials-circle {
+  background-color: #e7433c;
+  color: #e0e0e0;
+}
+
+input:focus {
+  border: 2px solid #e0e0e0; /* Ajoute la largeur, le style et la couleur */
+  outline: none; /* Pour supprimer la bordure par défaut (si nécessaire) */
+}
+.navbar.dark-mode .smart-matching:hover .lightbulb-icon,
+.navbar.dark-mode .smart-matching:hover .cog {
+  color: #ffffff !important; /* Icônes en blanc pour le mode sombre */
+}
+
+/* Couleur de l'icône au survol en mode clair */
+.smart-matching:hover .lightbulb-icon,
+.smart-matching:hover .cog {
+  color: #171C3F !important; /* Icônes en bleu foncé défini pour le mode clair */
+}
+.smart-matching .lightbulb-icon,
+.smart-matching .cog {
+  color: #ffffff; /* Icônes en blanc par défaut en mode clair */
+}
+
+
+/* Mode sombre - Jaune au survol dans les menus déroulants */
+.navbar.dark-mode .dropdown-menu li:hover {
+  background-color: #444; /* Jaune pour l'effet de survol */
+  color: whitesmoke;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .dropdown-menu li:hover {
+  background-color: #f0f0f0; 
+  color: #171C3F; 
+}

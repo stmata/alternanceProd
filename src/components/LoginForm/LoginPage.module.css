@@ -1,0 +1,355 @@
+
+
+.loginContainer {
+  display: flex;
+  justify-content: space-between; 
+  position: absolute;  /* Prend tout l'écran */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../../assets/background.png') no-repeat center center;
+  background-size: cover;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+
+.animatedText {
+  width: 30%; /* Adjust width as needed */
+  text-align: center; /* Align text content to the right */
+  white-space: normal; /* Allow the text to break into multiple lines */
+  word-wrap: break-word; /* Ensure long words break */
+  overflow-wrap: break-word;
+  margin-right: 5%; /* Add margin to control the vertical spacing */
+  font-weight: bold;
+  font-size: 22px;
+  color: #171C3F;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 2; /* Increases line spacing for readability */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+
+.loginFormBox {
+  width: 30%;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 40px;
+  border-radius: 15px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centrer tout le contenu de la boîte */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacement entre les éléments pour un meilleur visuel */
+  margin: 0 auto;
+  margin-left: 50px
+}
+
+.formHeader {
+  display: flex;
+  justify-content: center; /* Centrer le titre */
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.formTitle {
+  font-size: 2.2rem; /* Légèrement agrandi pour plus de lisibilité */
+  font-weight: bold;
+  color: #171C3F;
+  text-align: center; /* Assurer que le texte est bien centré */
+  line-height: 1.2; /* Améliore l'espacement entre les lignes si le titre est long */
+  letter-spacing: 0.5px; /* Ajoute un léger espacement entre les lettres pour la lisibilité */
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+
+}
+
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.inputField::placeholder {
+  color: #999;
+  opacity: 0.5;
+  font-size: 16px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 1.2rem;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  color: #171C3F;
+  font-size: 1rem;
+}
+
+.inputField:focus {
+  outline: none;
+}
+.inputField:hover + .inputIcon {
+  color: #be6a63;
+}
+.outsideIcon{
+  left: -45% !important;
+}
+.inputIcon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #171C3F;
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 1.5rem;
+  background-color: #FFFFFF;
+  color: #171C3F;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.backButton {
+  background-color: transparent;
+}
+.iconAndEmail {
+  display: flex;
+  align-items: center;  /* Align the icon and text vertically */
+  margin-bottom: 10px;  /* Space between the icon/email and input */
+}
+
+.outsideIcon {
+  cursor: pointer;
+  margin-right: 10px;  /* Space between arrow and email */
+  font-size: 20px;  /* Adjust icon size */
+  color: #333;
+}
+
+.emailText {
+  font-size: 18px;
+  color: #171C3F;
+  font-weight: bold;
+}
+
+.submitBtn:hover {
+  background-color: #171C3F;
+  color: white;
+}
+
+.typewriterText {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: black;
+  font-size: 1.5rem;
+  margin: 10px;
+  padding: 0.5rem;
+  max-width: 90%;
+  text-align: left;
+}
+
+.modifyEmailBtn {
+  background: none;
+  border: none;
+  color: #252525;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.modifyEmailBtn:hover {
+  text-decoration: underline;
+}
+
+.errorText {
+  color: #e53e3e;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.timerContainer {
+  display: flex;
+  align-items: center;  /* Align items vertically in the center */
+  justify-content: flex-start;  /* Ensure they are aligned to the left */
+}
+
+.countdownText {
+  margin-left: 5px;  /* Adds space between the icon and the text */
+}
+
+.resendCodeBtn {
+  background: none;
+  border: none;
+  color: #252525;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;  /* Align icon and text in a row (horizontally) */
+  align-items: center;  /* Vertically center the icon and text */
+  justify-content: center;  /* Center the content horizontally inside the button */
+}
+.resendCodeBtn:hover {
+  color: #be6a63;  /* Darker color on hover */
+}
+
+.countdownText {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #252525;
+}
+
+.actionGroup {
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center;     /* Centers the content vertically if needed */
+  width: 100%;             /* Ensures that the container takes the full width */
+  text-align: center;      /* Ensures text inside is centered */
+  border-top: 0px;
+}
+
+@media (max-width: 900px) {
+  .loginContainer {
+    flex-direction: column;  /* Stack animatedText and loginFormBox vertically */
+    align-items: center;     /* Center them horizontally */
+    justify-content: flex-start; /* Align to the top */
+    max-height:500vh;
+  }
+  
+  .animatedText {
+    order: 1;
+    margin-top: 10%;
+    width: 85%;  /* Adjust width to take more space on small screens */
+    font-size: 18px;  /* Decrease the font size for readability */
+    margin-left: 0;   /* Remove unnecessary left margin */
+    backdrop-filter: blur(50px);
+    color: white;
+    border-radius: 15px;
+    border-bottom: 10px;
+    margin-bottom: 15%;
+  }
+
+  .loginFormBox {
+    order: 2;
+    width: 80%;  /* Make the form take more space as well */
+    margin: 0 auto;  /* Center it horizontally */
+    padding: 20px;  /* Adjust padding */
+    bottom: 25%;  /* Set distance from the bottom of the screen */
+    left: 0;  /* Align to the left */
+    right: 0;  /* Align to the right */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+  .submitBtn {
+    font-size: 0.9rem;  /* Reduce button font size for small screens */
+  }
+  .formTitle{
+    font-size: 22px;
+  }
+  .errorText{
+    font-size: 1rem;
+  }
+  .resendCodeBtn{
+    font-size: 1rem;
+  }
+  .inputField::placeholder, .inputField{
+    font-size: 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .animatedText {
+    margin-bottom: 10%;
+    font-size: 16px;  /* Decrease the font size for readability */
+
+  }
+  .errorText{
+    font-size: 0.9rem;
+  }
+  .resendCodeBtn{
+    font-size: 0.9rem;
+  }
+  .inputField::placeholder, .inputField{
+    font-size: 0.9rem;
+  }
+}
+
+/* Mode sombre pour LoginPage */
+.dark-mode .loginContainer {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .animatedText {
+  color: #e0e0e0; /* Texte clair sur fond sombre */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Ombre subtile pour le texte */
+}
+
+.dark-mode .loginFormBox {
+  background: rgba(33, 33, 33, 0.8); /* Fond semi-transparent sombre */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); /* Ombre plus subtile */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode .formTitle {
+  color: #FFD700; /* Titre doré pour contraste */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Ombre pour un effet lumineux */
+}
+
+.dark-mode .inputField {
+  background: rgba(33, 33, 33, 0.5); /* Fond sombre pour l'input */
+  color: #e0e0e0;
+  border: 1px solid #444; /* Bordure légèrement plus claire */
+}
+
+.dark-mode .inputField::placeholder {
+  color: #bbb; /* Couleur claire pour le placeholder */
+  opacity: 0.8;
+}
+
+.dark-mode .inputIcon {
+  color: #FFD700; /* Icônes dorées */
+}
+
+.dark-mode .submitBtn {
+  background-color: #444;
+  color: #FFD700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .submitBtn:hover {
+  background-color: #FFD700; /* Inversion des couleurs */
+  color: #1a1a1a;
+}
+
+.dark-mode .errorText {
+  color: #ff4c4c; /* Rouge vif pour les erreurs */
+}
+
+.dark-mode .resendCodeBtn {
+  color: #FFD700; /* Bouton de renvoi du code en doré */
+}
+
+.dark-mode .resendCodeBtn:hover {
+  color: #FFF;
+}
+
+.dark-mode .countdownText {
+  color: #FFD700; /* Texte du compte à rebours en doré */
+}
+
+.dark-mode .timeIcon {
+  color: #FFD700; /* Icône de l'horloge en doré */
+}
