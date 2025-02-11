@@ -16,5 +16,8 @@ export default defineConfig({
       input: 'index.html', // Spécifie le point d'entrée principal
     },
   },
+  define: {
+    'process.env': process.env
+  }, 
   publicDir: 'public',
 })
