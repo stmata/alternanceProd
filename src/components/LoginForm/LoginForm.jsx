@@ -45,7 +45,8 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [isSkemaDomain, setIsSkemaDomain] = useState(true);
 
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
+
   const { t } = useTranslation();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -64,9 +65,6 @@ const LoginForm = () => {
 
   // Clear email and code when the component mounts (e.g., after logout)
   useEffect(() => {
-    const apiUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
-    console.log("API URL:", apiUrl);
-
     setEmailInput("");
     setCode("");
   }, []);

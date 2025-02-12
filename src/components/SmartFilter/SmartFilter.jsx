@@ -30,7 +30,7 @@ const SmartFilter = () => {
   const [isLoadingText, setIsLoadingText] = useState(false);
   const [fileName, setFileName] = useState(null);
   const { t } = useTranslation();
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
 
   // Load stored data from sessionStorage
   useEffect(() => {

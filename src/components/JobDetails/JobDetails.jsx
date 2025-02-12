@@ -13,7 +13,8 @@ const JobDetails = ({ selectedJob, isPlatformPage = true }) => {
     ? (language === "fr" ? selectedJob.Summary_fr : selectedJob.Summary || "N/A")
     : selectedJob || "N/A";
     
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
+
 
   const jobTitleLabel = t("job_title");
   const primaryResponsibilitiesLabel = t("primary_responsibilities");

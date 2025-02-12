@@ -20,7 +20,8 @@ const LastRequest = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true); // State for loading
   const navigate = useNavigate(); // For programmatic navigation
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
+
 
   const {
     new_data_added, setNewDataAdded, userId, theme

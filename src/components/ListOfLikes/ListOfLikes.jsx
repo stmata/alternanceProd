@@ -18,7 +18,7 @@ const ListOfLikes = () => {
   const [isLoading, setIsLoading] = useState(true); // State for loading
   const [page, setPage] = useState(0); // Pagination: current page
   const rowsPerPage = 2; // Rows per page is fixed at 2
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
   const { t, i18n } = useTranslation();
   // Function to render list items from text
   const renderList = (text) => {

@@ -32,7 +32,7 @@ const PlatformPage = () => {
   // États pour gérer la responsivité
   const [isTableVisible, setIsTableVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
   
   
   /**
