@@ -116,8 +116,11 @@ const LoginForm = () => {
         body: JSON.stringify({ email }),
         signal: controller.signal,
       });
-
       clearTimeout(timeoutId);
+      if (response.status === 500) {
+        setIsLoading(false);
+        return false;
+      }
       const data = await response.json();
       if (!data.status) {
         let errorMessage = data.detail || "An error occurred. Please try again.";
@@ -174,7 +177,7 @@ const LoginForm = () => {
       return false;
     } catch (error) {
       setIsLoading(false);
-      console.error("Error verifying code:", error);
+      //console.error("Error verifying code:", error);
       return false;
     }
   };
@@ -191,7 +194,12 @@ const LoginForm = () => {
 
     if (!isCodeSent) {
       const codeSent = await sendVerificationCode(emailInput);
-      if (codeSent) {
+      if (!codeSent) {
+        setIsSkemaDomain(false);
+        setError("You are not authorized to access the platform.");
+        return;
+      }
+      else{
         setIsCodeSent(true);
         setCountdown(300);
         setCanResend(false);

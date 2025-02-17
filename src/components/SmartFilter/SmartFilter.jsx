@@ -88,7 +88,7 @@ const SmartFilter = () => {
   // Handle prediction after summarization
   const handlePredict = async (summary, type) => {
     if (!platform || !region || !summary) {
-      console.error('Missing data for prediction.');
+      //console.error('Missing data for prediction.');
       return;
     }
 
@@ -144,7 +144,7 @@ const SmartFilter = () => {
         throw new Error('Échec de la récupération de la prédiction.');
       }
     } catch (error) {
-      console.error('Erreur lors de la récupération de la prédiction:', error);
+      //console.error('Erreur lors de la récupération de la prédiction:', error);
     } finally {
       if (type === 'cv') {
         setIsLoadingFile(false);
@@ -189,7 +189,7 @@ const SmartFilter = () => {
           throw new Error('Failed to summarize the file.');
         }
       } catch (error) {
-        console.error('Error summarizing file:', error);
+        //console.error('Error summarizing file:', error);
         alert('Failed to summarize the file.');
       } finally {
         setIsLoadingFile(false);
@@ -226,7 +226,7 @@ const SmartFilter = () => {
           throw new Error('Failed to summarize the text.');
         }
       } catch (error) {
-        console.error('Error summarizing text:', error);
+        //console.error('Error summarizing text:', error);
         alert('Failed to summarize the text.');
       } finally {
         setIsLoadingText(false);

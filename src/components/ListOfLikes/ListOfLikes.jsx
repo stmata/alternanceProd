@@ -45,13 +45,13 @@ const ListOfLikes = () => {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
+          //console.log(data);
           setLikedPosts(data.liked_posts || []);
         } else {
-          console.error("Failed to fetch liked posts");
+          //console.error("Failed to fetch liked posts");
         }
       } catch (error) {
-        console.error("Error:", error);
+        //console.error("Error:", error);
       } finally {
         setIsLoading(false); // Set loading to false after fetching
       }
@@ -79,12 +79,12 @@ const ListOfLikes = () => {
         setLikedPosts((prevPosts) =>
           prevPosts.filter((post) => post.Url !== postToRemove.Url)
         );
-        console.log("Successfully removed liked post");
+        //console.log("Successfully removed liked post");
       } else {
-        console.error("Failed to remove liked post");
+        //console.error("Failed to remove liked post");
       }
     } catch (error) {
-      console.error("Error:", error);
+      //console.error("Error:", error);
     }
   };
 
@@ -119,7 +119,7 @@ const ListOfLikes = () => {
             const language = i18n.language;
             const jobDescription =
               language === "fr" ? post.Summary_fr : post.Summary || "N/A";
-            console.log(post);
+            //console.log(post);
             const jobTitleLabel = t("job_title");
             const primaryResponsibilitiesLabel = t("primary_responsibilities");
             const keySkillsLabel = t("key_skills");

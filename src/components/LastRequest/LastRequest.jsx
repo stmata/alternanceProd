@@ -35,7 +35,7 @@ const LastRequest = () => {
   // Function to fetch the last requests
   const fetchLastRequests = async () => {
     if (!userId) {
-      console.error("No user email found in session storage.");
+      //console.error("No user email found in session storage.");
       setIsLoading(false);
       return;
     }
@@ -53,7 +53,7 @@ const LastRequest = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
 
       if (data.prediction_results && Array.isArray(data.prediction_results)) {
         // If more than 10 requests, limit to 10
@@ -63,14 +63,14 @@ const LastRequest = () => {
             : data.prediction_results.reverse()
         );
       } else {
-        console.error(
-          "Expected an array for prediction_results, but received:",
-          data
-        );
+        //console.error(
+        //  "Expected an array for prediction_results, but received:",
+        //  data
+        //);
         setRequests([]);
       }
     } catch (error) {
-      console.error("Error fetching last requests:", error);
+      //console.error("Error fetching last requests:", error);
       setRequests([]);
     } finally {
       setIsLoading(false); // End loading

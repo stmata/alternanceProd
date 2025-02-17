@@ -31,31 +31,55 @@ const CoverLetter = ({ coverLetter }) => {
       alert('No cover letter available to download.');
       return;
     }
-
+  
     const cleanCoverLetterLines = removeMarkdownAndFormat(coverLetter);
-
+  
+    const watermarkParagraph = new Paragraph({
+      children: [
+        new TextRun({
+          text: 'DRAFT',
+          color: 'D3D3D3', 
+          size: 48, 
+          font: 'Times New Roman',
+          bold: true,
+        }),
+      ],
+      alignment: 'center', 
+      spacing: {
+        before: 0,
+        after: 0,
+      },
+      indent: {
+        left: 5000, 
+      },
+      rotate: -45, 
+    });
+  
     const doc = new Document({
       sections: [
         {
-          children: cleanCoverLetterLines.map((line) => {
-            return new Paragraph({
-              children: [
-                new TextRun({
-                  text: line,
-                  font: 'Times New Roman',
-                  size: 26,
-                }),
-              ],
-              spacing: {
-                before: 200,
-                after: 200,
-              },
-            });
-          }),
+          children: [
+            watermarkParagraph, 
+            ...cleanCoverLetterLines.map((line) => {
+              return new Paragraph({
+                children: [
+                  new TextRun({
+                    text: line,
+                    font: 'Times New Roman',
+                    size: 26,
+                  }),
+                ],
+                spacing: {
+                  before: 200,
+                  after: 200,
+                },
+              });
+            }),
+          ],
         },
       ],
     });
-
+  
     Packer.toBlob(doc).then((blob) => {
       saveAs(blob, `Cover_Letter.docx`);
     });
@@ -73,21 +97,25 @@ const CoverLetter = ({ coverLetter }) => {
       {/* Render Markdown with proper block-level handling */}
       <Box
         sx={{
-          whiteSpace: 'pre-wrap', // Preserve line breaks and whitespace
-          wordBreak: 'break-word', // Break long words at appropriate points
+          whiteSpace: 'pre-wrap', 
+          wordBreak: 'break-word', 
         }}
       >
+        <Box sx={{ color: 'rgba(255, 0, 0, 0.8)', fontWeight: 'bold', textAlign: 'center', fontSize: "14px" }}>
+        {t('txt_msg_cover_letter')}
+        </Box>
+
         <Markdown
-  options={{
-    overrides: {
-      pre: {
-        component: 'div', // Render <pre> as a <div>
-      },
-    },
-  }}
->
-  {coverLetter || t('error_no_cover_letter')}
-</Markdown>
+          options={{
+            overrides: {
+              pre: {
+                component: 'div', // Render <pre> as a <div>
+              },
+            },
+          }}
+        >
+          {coverLetter || t('error_no_cover_letter')}
+      </Markdown>
 
       </Box>
     </Box>

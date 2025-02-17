@@ -74,7 +74,7 @@ const RstMatching = () => {
         try {
           setResult(JSON.parse(storedResults)); // Essayer de parser uniquement si c'est une chaîne JSON
         } catch (error) {
-          console.error("JSON parsing error:", error);
+          //console.error("JSON parsing error:", error);
           setResult([]);
         }
       } else if (Array.isArray(storedResults)) {

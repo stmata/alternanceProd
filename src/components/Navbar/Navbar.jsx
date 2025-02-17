@@ -80,7 +80,7 @@ const Navbar = () => {
     try {
       await dbHelper.clearAllData();  
     } catch (error) {
-      console.error("Erreur lors de la déconnexion avec dbHelper:", error);
+      //console.error("Erreur lors de la déconnexion avec dbHelper:", error);
     }
     navigate("/");
   };

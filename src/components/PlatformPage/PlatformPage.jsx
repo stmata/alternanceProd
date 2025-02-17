@@ -52,7 +52,7 @@ const PlatformPage = () => {
         return cachedData;
       }
   
-      console.log("Fetching data from the backend");
+      //console.log("Fetching data from the backend");
       const response = await fetch(`${baseUrl}/retrieval/file-with-summarize`, {
         method: "POST",
         headers: {
@@ -69,7 +69,7 @@ const PlatformPage = () => {
       await dbHelper.savePlatformData(platformToFetch, datas);
       return datas; 
     } catch (error) {
-      console.error("Error fetching data:", error);
+      //console.error("Error fetching data:", error);
       return [];
     }
   };
@@ -121,7 +121,7 @@ const PlatformPage = () => {
   useEffect(() => {
     const loadData = async () => {
       if (!dbHelper) {
-        console.error("dbHelper n'est pas encore initialisé.");
+        //console.error("dbHelper n'est pas encore initialisé.");
         return;
       }
       
@@ -136,7 +136,7 @@ const PlatformPage = () => {
         setSelectedJob(null);
         setIsTableVisible(true);
       } catch (error) {
-        console.error("Erreur de récupération des données:", error);
+        //console.error("Erreur de récupération des données:", error);
         setData([]);
       } finally {
         setLoading(false);

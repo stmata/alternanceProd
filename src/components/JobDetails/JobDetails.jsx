@@ -82,10 +82,10 @@ const JobDetails = ({ selectedJob, isPlatformPage = true }) => {
           // Store the liked posts in `likedRows` state
           setLikedRows(likedObj);
         } else {
-          console.error("Failed to fetch liked posts");
+         //console.error("Failed to fetch liked posts");
         }
       } catch (error) {
-        console.error("Error fetching liked posts", error);
+       //console.error("Error fetching liked posts", error);
       }
     };
 
@@ -116,10 +116,10 @@ const JobDetails = ({ selectedJob, isPlatformPage = true }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Unliked successfully", data);
+          //console.log("Unliked successfully", data);
         })
         .catch((error) => {
-          console.error("Error unliking the job", error);
+          //console.error("Error unliking the job", error);
         });
     } else {
       // Job is not liked, so like it
@@ -128,7 +128,7 @@ const JobDetails = ({ selectedJob, isPlatformPage = true }) => {
         ...prevState,
         [jobId]: true, // Set this specific job as liked
       }));
-      console.log(job);
+      //console.log(job);
 
       // Send the like status to the backend
       fetch(`${baseUrl}/history/add-liked-post`, {
@@ -144,10 +144,10 @@ const JobDetails = ({ selectedJob, isPlatformPage = true }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Liked successfully", data);
+          //console.log("Liked successfully", data);
         })
         .catch((error) => {
-          console.error("Error liking the job", error);
+          //console.error("Error liking the job", error);
         });
     }
   };
