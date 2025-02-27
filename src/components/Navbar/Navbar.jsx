@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBriefcase,
+  faQuestionCircle,
   faMapMarkerAlt,
   faSignOutAlt,
   faSearch,
@@ -17,12 +17,14 @@ import logo_dark from "../../assets/logo_dark.png"
 import { AppContext } from "../../AppContext";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ContactDialog from "../utils/ContactDialog/ContactDialog";
 
 const Navbar = () => {
   const { t } = useTranslation();
   const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
   const [levelDropdownOpen, setLevelDropdownOpen] = useState(false);
   const burgerMenuRef = useRef(null);
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {
     email,
@@ -47,6 +49,15 @@ const Navbar = () => {
     setTheme(newTheme);
     sessionStorage.setItem("theme", newTheme);
     document.body.classList.toggle("dark-mode", newTheme === "dark");
+  };
+
+  const handleOpenContactDialog = () => {
+    setContactDialogOpen(true);
+    setInitialsDropdownOpen(false); 
+  };
+  
+  const handleCloseContactDialog = () => {
+    setContactDialogOpen(false);
   };
   
   const navigate = useNavigate();
@@ -500,6 +511,17 @@ const Navbar = () => {
                   justifyContent: "space-between",
                   alignItems: "center",
                 }}
+                onClick={handleOpenContactDialog}
+              >
+                {t("txtNavbarMenuContact")} <FontAwesomeIcon icon={faQuestionCircle} />
+              </li>
+              <li
+                className="dropdown-itemm"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
                 onClick={() => {
                   handleThemeToggle();
                 }}
@@ -522,6 +544,16 @@ const Navbar = () => {
           )}
         </div>
       </nav>
+      <ContactDialog
+        open={contactDialogOpen}
+        onClose={handleCloseContactDialog}
+        title={t("txtTitleContactDialog")}
+        message={t("support_message")}
+        sendText={t("txtSend")}
+        cancelText={t("txtCancel")}
+        messageLabel={t("txtMessageLabel")}
+        email_user= {email}
+      />
     </>
   );
 };

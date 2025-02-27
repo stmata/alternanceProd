@@ -1,0 +1,80 @@
+/* Styles de base */
+.MuiDialog-paper {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .MuiDialogTitle-root {
+    font-weight: bold !important;
+  }
+  
+  .MuiDialogActions-root .MuiButton-root {
+    border-radius: 4px !important;
+    padding: 8px 16px !important;
+  }
+  
+  /* Mode sombre pour ContactDialog */
+  .dark-mode .MuiDialog-paper {
+    background-color: #1e1e1e !important; /* Fond sombre */
+    color: var(--primary-color) !important; /* Texte en blanc */
+    border: 1px solid #444 !important; /* Bordure pour délimiter la zone */
+    border-radius: 8px !important; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important; /* Ombre portée */
+  }
+  
+  .dark-mode .MuiDialogTitle-root {
+    color: #ffcc00 !important; /* Titre en jaune doré */
+    font-weight: bold !important;
+  }
+  
+  .dark-mode .MuiDialogContentText-root {
+    color: var(--secondary-color) !important; /* Texte en gris clair */
+  }
+  
+  .dark-mode .MuiDialogActions-root .MuiButton-root {
+    color: #ffffff !important; /* Texte des boutons en blanc */
+    border: 1px solid #444 !important; /* Bordure des boutons */
+  }
+  
+  .dark-mode .MuiDialogActions-root .MuiButton-root:hover {
+    color: #ff5252 !important; /* Texte des boutons au survol */
+    background-color: rgba(255, 82, 82, 0.1) !important; /* Fond au survol */
+  }
+  
+  /* Styles pour le champ de texte en mode sombre */
+  .dark-mode .MuiOutlinedInput-root {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+  
+  .dark-mode .MuiInputLabel-root {
+    color: #ccc !important;
+  }
+  
+  .dark-mode .MuiOutlinedInput-notchedOutline {
+    border-color: #555 !important;
+  }
+  
+  .dark-mode .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #777 !important;
+  }
+  
+  .dark-mode .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #ffcc00 !important;
+  }
+  
+  /* Styles pour les boutons d'action */
+  .dark-mode .MuiDialogActions-root .MuiButton-root {
+    margin: 8px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .dark-mode .MuiDialogActions-root .MuiButton-root:disabled {
+    color: #666 !important;
+    border-color: #333 !important;
+  }
+  
+  /* Animation de transition pour le dialog */
+  .MuiDialog-container .MuiDialog-paper {
+    transition: transform 0.3s ease-out !important;
+  }

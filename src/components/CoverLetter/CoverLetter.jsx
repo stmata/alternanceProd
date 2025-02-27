@@ -1,14 +1,61 @@
-import { Box, IconButton } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { Box, IconButton, useMediaQuery } from '@mui/material';
 import { Document, Packer, Paragraph, TextRun } from 'docx';
-import { saveAs } from 'file-saver'; // To download the file
-import Markdown from 'markdown-to-jsx'; // For rendering markdown
-import FileDownloadIcon from '@mui/icons-material/FileDownload'; // Icon for download
+import { saveAs } from 'file-saver';
+import Markdown from 'markdown-to-jsx';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { useTranslation } from 'react-i18next';
+import AlertDialogSlide from '../utils/AlertDialogSlide/AlertDialogSlide';
 
+const CoverLetter = ({ coverLetter, theme }) => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogTitle, setDialogTitle] = useState("");
+  const [dialogMessage, setDialogMessage] = useState("");
+  const { t } = useTranslation();
+  const [formattedWatermark, setFormattedWatermark] = useState("");
+  
+  const isMobile = useMediaQuery('(max-width:600px)');
+  const isTablet = useMediaQuery('(min-width:601px) and (max-width:960px)');
+  
+  const isDarkMode = theme === "dark";
+  const watermarkColor = isDarkMode 
+    ? 'rgba(255, 255, 255, 0.25)'  
+    : 'rgba(80, 80, 80, 0.3)'; 
+    
+  useEffect(() => {
+    const watermarkText = t('txt_draft_cover_letter');
+    
+    if (watermarkText.length > 30) {
+      const midPoint = Math.floor(watermarkText.length / 2);
+      
+      let breakPoint = watermarkText.indexOf(' ', midPoint - 10);
+      if (breakPoint === -1 || breakPoint > midPoint + 10) {
+        breakPoint = midPoint;
+      }
+      
+      const firstPart = watermarkText.substring(0, breakPoint);
+      const secondPart = watermarkText.substring(breakPoint + 1);
+      
+      setFormattedWatermark(`${firstPart}\n${secondPart}`);
+    } else {
+      setFormattedWatermark(watermarkText);
+    }
+  }, [t]);
 
-const CoverLetter = ({ coverLetter }) => {
+  const showAlertDialog = (title, message) => {
+    setDialogTitle(title);
+    setDialogMessage(message);
+    setDialogOpen(true);
+  };
 
-  // Function to clean markdown text and format for .docx file download
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
+  const handleDialogConfirm = () => {
+    setDialogOpen(false);
+  };
+
   const removeMarkdownAndFormat = (text) => {
     return text
       .replace(/(\*\*|__)(.*?)\1/g, '$2')
@@ -23,12 +70,13 @@ const CoverLetter = ({ coverLetter }) => {
       .split('\n')
       .filter((line) => line.trim().length > 0);
   };
-  const { t } = useTranslation();
 
-  // Function to download the cover letter as a .docx file
   const downloadCoverLetterWord = () => {
     if (!coverLetter || coverLetter === 'N/A') {
-      alert('No cover letter available to download.');
+      showAlertDialog(
+        t("alert_title_error"), 
+        t("cover_letter_download_error") 
+      );
       return;
     }
   
@@ -37,9 +85,9 @@ const CoverLetter = ({ coverLetter }) => {
     const watermarkParagraph = new Paragraph({
       children: [
         new TextRun({
-          text: 'DRAFT',
-          color: 'D3D3D3', 
-          size: 48, 
+          text: t('txt_draft_cover_letter'),
+          color: 'FF0000', 
+          size: 28, 
           font: 'Times New Roman',
           bold: true,
         }),
@@ -85,39 +133,88 @@ const CoverLetter = ({ coverLetter }) => {
     });
   };
 
+  // Tailles de police responsives en fonction de la taille de l'écran
+  const getFontSize = () => {
+    if (isMobile) return '25px';
+    if (isTablet) return '30px';
+    return '60px';
+  };
+
   return (
-    <Box className="cover-letter-container" sx={{ padding: '20px', border: '1px solid #ddd', borderRadius: '8px' }}>
+    <Box className="cover-letter-container" sx={{ 
+      padding: '20px', 
+      border: '1px solid #ddd', 
+      borderRadius: '8px',
+      position: 'relative',
+      overflow: 'hidden',
+      backgroundColor: isDarkMode ? '#2d2d2d' : '#ffffff',
+    }}>
+      {/* Watermark message IA - avec adaptation responsive améliorée */}
+      <Box sx={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transform: 'rotate(-45deg)',
+        fontSize: getFontSize(),
+        fontWeight: 'bold',
+        color: watermarkColor,
+        pointerEvents: 'none',
+        zIndex: 0,
+        userSelect: 'none',
+        textAlign: 'center',
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
+        lineHeight: 1.3,
+        padding: 2,
+        // Assurer que le filigrane couvre toute la zone
+        //transformOrigin: 'center center',
+        //minHeight: '200%',
+        //minWidth: '200%'
+      }}>
+        {formattedWatermark}
+      </Box>
+
       {/* Download Button with Icon */}
-      <Box display="flex" justifyContent="flex-end" mb={2}>
-        <IconButton onClick={downloadCoverLetterWord} >
-            <FileDownloadIcon sx={{ color: '#171C3F' }} />
+      <Box display="flex" justifyContent="flex-end" mb={2} sx={{ position: 'relative', zIndex: 1 }}>
+        <IconButton onClick={downloadCoverLetterWord} size={isMobile ? 'small' : 'medium'}>
+          <FileDownloadIcon sx={{ color: '#171C3F' }} />
         </IconButton>
       </Box>
 
       {/* Render Markdown with proper block-level handling */}
-      <Box
-        sx={{
-          whiteSpace: 'pre-wrap', 
-          wordBreak: 'break-word', 
-        }}
-      >
-        <Box sx={{ color: 'rgba(255, 0, 0, 0.8)', fontWeight: 'bold', textAlign: 'center', fontSize: "14px" }}>
-        {t('txt_msg_cover_letter')}
-        </Box>
-
+      <Box sx={{
+        whiteSpace: 'pre-wrap', 
+        wordBreak: 'break-word',
+        position: 'relative',
+        zIndex: 1,
+        color: isDarkMode ? '#ffffff' : '#000000'
+      }}>
         <Markdown
           options={{
             overrides: {
               pre: {
-                component: 'div', // Render <pre> as a <div>
+                component: 'div',
               },
             },
           }}
         >
           {coverLetter || t('error_no_cover_letter')}
-      </Markdown>
-
+        </Markdown>
       </Box>
+
+      <AlertDialogSlide
+        open={dialogOpen}
+        onClose={handleDialogClose}
+        onConfirm={handleDialogConfirm}
+        title={dialogTitle}
+        message={dialogMessage}
+        confirmText={t("alert_button_ok")}
+      />
     </Box>
   );
 };

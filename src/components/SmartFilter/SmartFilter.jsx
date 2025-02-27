@@ -5,6 +5,7 @@ import './SmartFilter.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import { InsertDriveFile } from '@mui/icons-material';
 import LastRequest from '../LastRequest/LastRequest';
+import AlertDialogSlide from '../utils/AlertDialogSlide/AlertDialogSlide';
 import { useTranslation } from 'react-i18next';
 
 const SmartFilter = () => {
@@ -30,6 +31,9 @@ const SmartFilter = () => {
   const [isLoadingText, setIsLoadingText] = useState(false);
   const [fileName, setFileName] = useState(null);
   const { t } = useTranslation();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogTitle, setDialogTitle] = useState("");
+  const [dialogMessage, setDialogMessage] = useState("");
   const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
 
   // Load stored data from sessionStorage
@@ -83,6 +87,33 @@ const SmartFilter = () => {
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase()
       .replace(/-/g, '_');
+  };
+
+  /**
+   * Opens the alert dialog with a title and message.
+   * 
+   * @param {string} title - The title of the dialog.
+   * @param {string} message - The message to display in the dialog.
+   */
+  const showAlertDialog = (title, message) => {
+    setDialogTitle(title);
+    setDialogMessage(message);
+    setDialogOpen(true);
+  };
+
+  /**
+   * Closes the alert dialog.
+   */
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
+  /**
+   * Handles the confirm action of the alert dialog.
+   */
+  const handleDialogConfirm = () => {
+    setDialogOpen(false);
+    // Add any additional logic for the confirm action here
   };
 
   // Handle prediction after summarization
@@ -186,11 +217,11 @@ const SmartFilter = () => {
           sessionStorage.setItem('isFileSummarized', 'true');
           await handlePredict(data.summary, 'cv');
         } else {
-          throw new Error('Failed to summarize the file.');
+          showAlertDialog(t("alert_title_error"), t("alert_message_file_summary_failed"));
         }
       } catch (error) {
         //console.error('Error summarizing file:', error);
-        alert('Failed to summarize the file.');
+        showAlertDialog(t("alert_title_error"), t("alert_message_file_summary_failed"));
       } finally {
         setIsLoadingFile(false);
       }
@@ -223,11 +254,11 @@ const SmartFilter = () => {
           sessionStorage.setItem('savedPrompt', promptText);
           await handlePredict(data.summary, 'prompt');
         } else {
-          throw new Error('Failed to summarize the text.');
+          showAlertDialog(t("alert_title_error"), t("alert_message_text_summary_failed"));
         }
       } catch (error) {
         //console.error('Error summarizing text:', error);
-        alert('Failed to summarize the text.');
+        showAlertDialog(t("alert_title_error"), t("alert_message_text_summary_failed"));
       } finally {
         setIsLoadingText(false);
       }
@@ -355,6 +386,14 @@ const SmartFilter = () => {
           )}
         </div>
       </div>
+      <AlertDialogSlide
+        open={dialogOpen}
+        onClose={handleDialogClose}
+        onConfirm={handleDialogConfirm}
+        title={dialogTitle}
+        message={dialogMessage}
+        confirmText={t("alert_button_ok")}
+      />
       <LastRequest />
     </div>
   );
