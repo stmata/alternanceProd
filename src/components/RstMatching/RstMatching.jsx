@@ -17,7 +17,7 @@ import JobDetails from "../JobDetails/JobDetails";
 const RstMatching = () => {
   const { i18n } = useTranslation(); // ajout de i18n pour accéder à la langue
   const currentLanguage = i18n.language;
-  const { platform, region } =
+  const { platform, region, theme } =
     useContext(AppContext);
   const [prevPlatform, setPrevPlatform] = useState(
     sessionStorage.getItem("platform")
@@ -412,6 +412,7 @@ const RstMatching = () => {
                 <Typography variant="h6">{t("title_CL")}</Typography>
 
                 <CoverLetter
+                  theme={theme}
                   coverLetter={
                     currentLanguage === "fr"
                       ? selectedCoverLetter?.cover_letter_fr || t("error_no_cover_letter")

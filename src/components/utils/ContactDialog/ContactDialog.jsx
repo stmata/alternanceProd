@@ -10,6 +10,7 @@ import Slide from '@mui/material/Slide';
 import { CircularProgress } from '@mui/material';
 import AlertDialogSlide from '../AlertDialogSlide/AlertDialogSlide';
 import './ContactDialog.css';
+import { useTranslation } from 'react-i18next'; 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -44,7 +45,7 @@ const ContactDialog = ({
   const [alertMessage, setAlertMessage] = React.useState('');
   const [isSuccess, setIsSuccess] = React.useState(true);
   const baseUrl = window._env_?.VITE_APP_BASE_URL || import.meta.env.VITE_APP_BASE_URL;
-
+  const { t } = useTranslation();
   const handleClose = () => {
     if (!loading) {
       setUserMessage('');
@@ -74,7 +75,7 @@ const ContactDialog = ({
       
       const result = await response.json();
       
-      if (response.ok) {
+      if (result.status) {
         setIsSuccess(true);
         setAlertTitle(t("txtContactSuccessTitle"));
         setAlertMessage(t("txtContactSuccessMessage"));
